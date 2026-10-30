@@ -88,16 +88,27 @@ Dnsenum is a multithreaded perl script to enumerate DNS information of a domain 
 
 
 Get the host’s addresses (A record):
+```
+dig google.com A
+```
 
 <img width="532" height="287" alt="image" src="https://github.com/user-attachments/assets/a7fe919c-3237-48f8-9237-364528abc8fb" />
 
 
 Get the namservers (threaded):
+```
+dig google.com NS
+```
+
+
 
 <img width="538" height="482" alt="image" src="https://github.com/user-attachments/assets/11a71faa-b289-465f-b4d3-e53e91bd8391" />
 
 
 Get the MX record (threaded):
+```
+dig google.com MX
+```
 
 <img width="482" height="470" alt="image" src="https://github.com/user-attachments/assets/7bde099f-20bb-4eff-89a4-fe31c6f51f32" />
 
