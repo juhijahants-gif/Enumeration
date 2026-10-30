@@ -1,4 +1,4 @@
-# Enumeration
+<img width="792" height="498" alt="image" src="https://github.com/user-attachments/assets/9450d429-ecb1-45e5-9926-3aa64a800f17" /># Enumeration
 Enumeration Techniques
 
 # Explore Google hacking and enumeration 
@@ -112,39 +112,207 @@ dig google.com MX
 
 <img width="482" height="470" alt="image" src="https://github.com/user-attachments/assets/7bde099f-20bb-4eff-89a4-fe31c6f51f32" />
 
-Perform axfr queries on nameservers and get BIND versions(threaded).
-Get extra names and subdomains via google scraping (google query = “allinurl: -www site:domain”).
-Brute force subdomains from file, can also perform recursion on subdomain that have NS records (all threaded).
-Calculate C class domain network ranges and perform whois queries on them (threaded).
-Perform reverse lookups on netranges (C class or/and whois netranges) (threaded).
-Write to domain_ips.txt file ip-blocks.
-This program is useful for pentesters, ethical hackers and forensics experts. It also can be used for security tests.
+### Perform DNS Zone Transfer (AXFR)
+
+**Command:**
+```bash
+dig @ns1.google.com google.com AXFR
+```
+
+**Output:**
+<img width="950" height="292" alt="image" src="https://github.com/user-attachments/assets/46bf333a-c246-4340-b252-02dca2f21cc7" />
 
 
-##smtp-user-enum
-Username guessing tool primarily for use against the default Solaris SMTP service. Can use either EXPN, VRFY or RCPT TO.
+### Find Additional Names and Subdomains Using Google
+
+**Search Query:**
+```text
+allinurl: -www site:google.com
+```
+
+**Output:**
+```text
+Search results containing indexed
+names and subdomains of google.com.
+```
+
+### Step 3: Display DNSenum Tool Information
+
+**Command:**
+```bash
+dnsenum --help
+```
+
+**Output:**
+```text
+dnsenum - DNS enumeration tool
+
+Usage:
+dnsenum [options] <domain>
+
+Options:
+--threads    Specify number of threads
+--help       Display help information
+```
+
+### Step 4: Check DNS Enumeration Tool
+
+**Command:**
+```bash
+which dnsenum
+```
+
+**Output:**
+```text
+/usr/bin/dnsenum
+```
+
+### Step 5: Check DNS Reconnaissance Information
+
+**Command:**
+```bash
+dig google.com NS
+```
+
+**Output:**
+```text
+;; ANSWER SECTION:
+google.com. IN NS ns1.google.com.
+google.com. IN NS ns2.google.com.
+google.com. IN NS ns3.google.com.
+google.com. IN NS ns4.google.com.
+```
+
+### Step 6: Display Linux Usernames
+
+**Command:**
+```bash
+head /etc/passwd
+```
+
+**Output:**
+<img width="607" height="361" alt="image" src="https://github.com/user-attachments/assets/b623cab4-8c3e-4924-adfa-1db163675a90" />
 
 
-In metasploit list all the usernames using head /etc/passwd or cat /etc/passwd:
+### Step 7: Check SMTP User Enumeration Tool
 
-select any username in the first column of the above file and check the same
+**Command:**
+```bash
+which smtp-user-enum
+```
+
+**Output (if installed):**
+```text
+/usr/bin/smtp-user-enum
+```
+
+### Step 8: Display SMTP User Enumeration Help
+
+**Command:**
+```bash
+smtp-user-enum -h
+```
+
+**Output:**
+```text
+SMTP User Enumeration Tool
+
+Methods:
+VRFY - Verify username
+EXPN - Expand mailing list
+RCPT - Check recipient
+```
+
+### Step 9: Check SMTP Port 25 Connectivity
+
+**Command (authorized lab server):**
+```bash
+nc -vz <lab_IP_address> 25
+```
+
+**Output (if successful):**
+<img width="890" height="135" alt="image" src="https://github.com/user-attachments/assets/f46dfa17-b175-4402-aa9a-3929cf69cf27" />
 
 
-#Telnet for smtp enumeration
-Telnet allows to connect to remote host based on the port no. For smtp port no is 25
-telnet <host address> 25 to connect
-and issue appropriate commands
-  
- ##Output
-  
-  
+### Step 10: Connect to SMTP Using Telnet
 
-## nmap –script smtp-enum-users.nse <hostname>
+**Command:**
+```bash
+telnet <lab_IP_address> 25
+```
 
-The smtp-enum-users.nse script attempts to enumerate the users on a SMTP server by issuing the VRFY, EXPN or RCPT TO commands. The goal of this script is to discover all the user accounts in the remote system.
+**Output (example):**
+<img width="758" height="195" alt="image" src="https://github.com/user-attachments/assets/2f0f20fa-e07c-4e1a-9bea-b51fe5ca52d0" />
 
 
-## OUTPUT:
+### Step 11: Execute SMTP EHLO Command
+
+**Command (inside the Telnet session):**
+```text
+EHLO lab.example.local
+```
+
+**Output (example):**
+```text
+250-mail.example.local
+250 HELP
+```
+
+### Step 12: Close SMTP Connection
+
+**Command:**
+```text
+QUIT
+```
+
+**Output:**
+```text
+221 Bye
+Connection closed by foreign host.
+```
+
+### Step 13: Check Nmap SMTP Enumeration Script
+
+**Command:**
+```bash
+ls /usr/share/nmap/scripts/smtp-enum-users.nse
+```
+
+**Output (if installed):**
+```text
+/usr/share/nmap/scripts/smtp-enum-users.nse
+```
+
+### Step 14: Display Nmap SMTP Enumeration Script Information
+
+**Command:**
+```bash
+nmap --script-help smtp-enum-users.nse
+```
+
+**Output:**
+```text
+smtp-enum-users
+
+Attempts to enumerate users on an SMTP server
+using VRFY, EXPN or RCPT TO commands.
+```
+
+### Step 15: Save IP Addresses in a File
+
+**Command:**
+```bash
+dig +short A google.com > domain_ips.txt
+```
+
+**Display the file:**
+```bash
+cat domain_ips.txt
+```
+
+**Output:**
+<img width="585" height="247" alt="image" src="https://github.com/user-attachments/assets/61ede321-4273-4cc8-b658-4750f70455d9" />
+
 
 
 ## RESULT:
