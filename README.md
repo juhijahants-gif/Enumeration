@@ -1,4 +1,4 @@
-<img width="792" height="498" alt="image" src="https://github.com/user-attachments/assets/9450d429-ecb1-45e5-9926-3aa64a800f17" /># Enumeration
+# Enumeration
 Enumeration Techniques
 
 # Explore Google hacking and enumeration 
@@ -73,8 +73,7 @@ Enumerate general DNS records for a given domain (MX, SOA, NS, A, AAAA, SPF , TX
 Perform common SRV Record Enumeration
 Top level domain expansion
 ## OUTPUT:
-![dnsrecon](./img/dnsrecon.png)
-
+<img width="960" height="799" alt="image" src="https://github.com/user-attachments/assets/36b91d6f-59ec-4313-af97-5058c64c9a00" />
 
 
 ##dnsenum
@@ -91,31 +90,19 @@ Calculate C class domain network ranges and perform whois queries on them (threa
 Perform reverse lookups on netranges (C class or/and whois netranges) (threaded).
 Write to domain_ips.txt file ip-blocks.
 This program is useful for pentesters, ethical hackers and forensics experts. It also can be used for security tests.
+<img width="958" height="832" alt="image" src="https://github.com/user-attachments/assets/cc404b81-5e63-421b-ae1b-17f4e82ff760" />
+##SMTP User Enumeration – smtp-user-enum
+## Create username list and VRFY enumeration 
+<img width="701" height="413" alt="image" src="https://github.com/user-attachments/assets/887ba4c8-fd00-46a4-ae03-b6dc6c3761d4" />
+## RCPT enumeration
+<img width="764" height="412" alt="image" src="https://github.com/user-attachments/assets/99f6ff2c-9a9b-4384-bba4-f2f4b0ceddfe" />
+##EXPN enumeration
+<img width="746" height="377" alt="image" src="https://github.com/user-attachments/assets/a65892bd-a268-438a-b7ac-c380f50bd2d9" />
+###Telnet for SMTP Enumeration
+<img width="448" height="390" alt="image" src="https://github.com/user-attachments/assets/6ff86eae-c98e-4988-8656-a0bd6f5791e0" />
+###Nmap – smtp-enum-users.nse
+<img width="690" height="192" alt="image" src="https://github.com/user-attachments/assets/92ac1b92-5e57-4d6a-8761-09dc29ad6c10" />
 
-![dnsenum](./img/dnsenum.png)
-##smtp-user-enum
-Username guessing tool primarily for use against the default Solaris SMTP service. Can use either EXPN, VRFY or RCPT TO.
-
-
-In metasploit list all the usernames using head /etc/passwd or cat /etc/passwd:
-
-select any username in the first column of the above file and check the same
-
-![smtp](./img/smtp.png)
-#Telnet for smtp enumeration
-Telnet allows to connect to remote host based on the port no. For smtp port no is 25
-telnet <host address> 25 to connect
-and issue appropriate commands
-## Output
-![wwwdata](./img/wwwdata.png)
-
-## nmap –script smtp-enum-users.nse <hostname>
-
-The smtp-enum-users.nse script attempts to enumerate the users on a SMTP server by issuing the VRFY, EXPN or RCPT TO commands. The goal of this script is to discover all the user accounts in the remote system.
-
-
-## OUTPUT:
-![nmap](./img/nmap.png)
 
 ## RESULT:
 The Google hacking keywords and enumeration tools were identified and executed successfully
