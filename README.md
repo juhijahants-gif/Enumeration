@@ -90,7 +90,8 @@ Calculate C class domain network ranges and perform whois queries on them (threa
 Perform reverse lookups on netranges (C class or/and whois netranges) (threaded).
 Write to domain_ips.txt file ip-blocks.
 This program is useful for pentesters, ethical hackers and forensics experts. It also can be used for security tests.
-<img width="958" height="832" alt="image" src="https://github.com/user-attachments/assets/cc404b81-5e63-421b-ae1b-17f4e82ff760" />
+<img width="902" height="896" alt="image" src="https://github.com/user-attachments/assets/40c401c6-7ea1-4e56-91be-02311a0d9ada" />
+
 ##SMTP User Enumeration – smtp-user-enum
 ## Create username list and VRFY enumeration
 
